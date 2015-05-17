@@ -1,0 +1,5 @@
+cmake_minimum_required(VERSION 2.8)
+project( AnifaceDetect )
+find_package( OpenCV REQUIRED )
+add_executable( AnifaceDetect detect.cpp )
+target_link_libraries( AnifaceDetect ${OpenCV_LIBS} )
