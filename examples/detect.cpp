@@ -23,9 +23,9 @@ void detect(cv::Mat img)
 	equalizeHist(grayimg, grayimg);
 
 	vector<Rect> faces;
-	animeface_cascade.detectMultiScale(grayimg, faces, 1.1, 1, 0, Size(24, 24));
+	animeface_cascade.detectMultiScale(grayimg, faces, 1.1, 3, 0, Size(24, 24));
 	for(int i = 0; i < faces.size(); ++i)
-		rectangle(img, faces[i], Scalar(0, 0, 255));
+		rectangle(img, faces[i], Scalar(0, 0, 255), 2);
 	
 	try {
 		imwrite("out.png", img);
@@ -40,7 +40,7 @@ int main(int argc, char *argv[])
 {
 	if(argc != 2)
 	{
-		cerr << "usage: detect.py <filename>" << endl;
+		cerr << "usage: ./AnimefaceDetect <filename>" << endl;
 		exit(-1);
 	}
 
